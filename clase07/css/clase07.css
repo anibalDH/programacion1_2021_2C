@@ -1,0 +1,114 @@
+/*
+orden de las reglas de estilo:
+de lo general a lo particular
+y de arriba hacia abajo
+*/
+
+
+/* selector universal
+(TODOS los elementos del HTML) */
+* {
+  /* el tamaño de las cajas pasa a calcularse hasta la parte externa de los bordes */
+  box-sizing: border-box;
+}
+
+body {
+  /* tipografía general del proyecto */
+  font-family: 'Fira Sans Condensed', sans-serif;
+  /* elimina los espacios predeterminados alrededor de las etiquetas */
+  margin: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  /* tipografía diferenciada de los títulos */
+  font-family: 'Montserrat', sans-serif;
+}
+
+img {
+  /* evita que las imágenes sean más grandes que la etiqueta que las contiene, eliminando scrolls horizontales */
+  max-width: 100%;
+}
+
+a {
+  color: rgb(65, 65, 151);
+  font-weight: bold;
+  text-decoration: none;
+}
+
+
+/*
+"componentes" encabezado y pie
+*/
+header,
+footer {
+  background-color: rgb(36, 60, 61);
+}
+
+header img,
+footer img {
+  max-width: 200px;
+}
+
+
+
+/*
+"componente" principal
+*/
+
+main {
+  padding-bottom: 2em;
+}
+
+article {
+  width: 50%;
+  padding: 1em;
+}
+
+article * {
+  margin: 0;
+}
+
+article h3,
+.articulos article p {
+  margin-bottom: 1rem;
+}
+
+article img {
+  background-color: white;
+  border: solid 4px rgb(47, 47, 75);
+  border-radius: 50%;
+  box-shadow: 0 3px 3px rgba(0, 0, 0, 0.25);
+}
+
+
+.est1,
+.est4 {
+  background-color: rgba(95, 158, 160, 0.35);
+}
+
+.est2 {
+  background-color: rgba(95, 158, 160, 0.15);
+}
+
+.est3 {
+  background-color: rgba(95, 158, 160, 0.75);
+}
+
+.articulos article {
+  background-color: rgba(95, 158, 160, 0.15);
+}
+
+.articulos a {
+  background: rgba(36, 60, 61, 0.75);
+  color: white;
+  padding: .25em .75em;
+}
+
+.articulos a:hover {
+  background: rgba(36, 60, 61, 0.95);
+}
