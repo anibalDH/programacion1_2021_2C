@@ -8,9 +8,13 @@ body {
   /* elimina los espacios predeterminados alrededor de las etiquetas */
   margin: 0;
 
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
+  /* para que el "footer" quede siempre abajo
+     aun con poco contenido en "main";
+     se complementa con la regla css de línea 62 */
+
+  display: flex; /* caja flexible */
+  flex-direction: column; /* eje principal: vertical */
+  min-height: 100vh; /* altura mínima: la altura del navegador */
 }
 
 h1,
@@ -39,7 +43,7 @@ y limitar su ancho
 .contenedora {
   max-width: 800px;
   margin: 0 auto;
-  padding: 1em;
+  padding: 15px;
 }
 
 
@@ -57,6 +61,10 @@ footer img {
 }
 
 footer {
+  /* para que el "footer" quede siempre abajo
+     aun con poco contenido en "main";
+     se complementa con las declaraciones
+     de líneas 15, 16 y 17 */
   margin-top: auto;
 }
 
@@ -66,7 +74,7 @@ main
 */
 
 main {
-  padding: 1em 0;
+  padding: 15px 0;
 }
 
 ul {
@@ -76,15 +84,15 @@ ul {
 }
 
 ul li {
-  margin-bottom: .5rem;
+  margin-bottom: 4px;
 }
 
 ul li a {
   display: block;
   background: rgba(36, 60, 61, 0.5);
   color: white;
-  padding: .25em .5em;
-  font-size: 1.5rem;
+  padding: 4px 8px;
+  font-size: 150%;
   font-weight: bold;
   text-decoration: none;
   transition: all 1s ease;
