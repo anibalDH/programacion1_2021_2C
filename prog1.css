@@ -28,6 +28,10 @@ img {
   max-width: 100%;
 }
 
+a {
+  color: white;
+}
+
 /*
 clase para centrar contenidos
 y limitar su ancho
