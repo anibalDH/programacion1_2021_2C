@@ -17,6 +17,21 @@ body {
   font-family: 'Fira Sans Condensed', sans-serif;
   /* elimina los espacios predeterminados alrededor de las etiquetas */
   margin: 0;
+
+  /* para que el "footer" quede siempre abajo
+     aun con poco contenido en "main";
+     se complementa con la regla css de línea 29 */
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+footer {
+  /* para que el "footer" quede siempre abajo
+     aun con poco contenido en "main";
+     se complementa con las declaraciones
+     de líneas 24, 25 y 26 */
+  margin-top: auto;
 }
 
 h1,
