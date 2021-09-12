@@ -1,0 +1,271 @@
+/*
+orden de las reglas de estilo:
+de lo general a lo particular
+y de arriba hacia abajo
+*/
+
+
+/* selector universal
+(TODOS los elementos del HTML) */
+* {
+  /* el tamaño de las cajas pasa a calcularse hasta la parte externa de los bordes */
+  box-sizing: border-box;
+}
+
+body {
+  /* tipografía general del proyecto */
+  font-family: 'Fira Sans Condensed', sans-serif;
+  /* elimina los espacios predeterminados alrededor de las etiquetas */
+  margin: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  /* tipografía diferenciada de los títulos */
+  font-family: 'Montserrat', sans-serif;
+}
+
+img {
+  /* evita que las imágenes sean más grandes que la etiqueta que las contiene, eliminando scrolls horizontales */
+  max-width: 100%;
+}
+
+a {
+  color: white;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+
+/*
+clase para centrar contenidos
+y limitar su ancho
+*/
+.contenedora {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 15px;
+}
+
+
+
+/*
+"componentes" encabezado y pie
+*/
+header,
+footer {
+  background-color: rgb(36, 60, 61);
+}
+
+header .contenedora {
+  /* caja flexible */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+header img,
+footer img {
+  max-width: 200px;
+}
+
+/* menu */
+
+header nav {
+  text-align: right;
+}
+
+header nav button {
+  background-color: rgba(255, 255, 255, 0.5);
+  border: solid 3px rgba(255, 255, 255, 0.65);
+  border-radius: 50%;
+  color: white;
+  width: 50px;
+  height: 50px;
+  font-size: 150%;
+}
+
+/* oculta el menu */
+header nav ul {
+  display: none;
+}
+
+header nav ul li a {
+  background-color: rgba(0, 0, 0, 0.15);
+  display: block;
+  padding: 10px 20px;
+}
+
+header nav ul li a:hover {
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+
+/*
+"componente" principal de la página
+*/
+
+main {
+  padding-bottom: 30px;
+}
+
+article {
+  padding: 15px;
+  /* caja flexible */
+  display: flex;
+  /* si sus elementos no caben en una línea,
+    bajan a la línea siguiente */
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+article * {
+  margin: 0;
+}
+
+article h3 {
+  width: 100%;
+}
+
+article h3,
+.articulos article p {
+  margin-bottom: 15px;
+}
+
+article img {
+  background-color: white;
+  border: solid 4px rgb(47, 47, 75);
+  border-radius: 50%;
+  box-shadow: 0 3px 3px rgba(0, 0, 0, 0.25);
+  width: 80px;
+  height: 80px;
+  margin-right: auto;
+}
+
+.equipo p {
+  width: 65%;
+}
+
+.est1,
+.est4 {
+  background-color: rgba(95, 158, 160, 0.35);
+}
+
+.est2 {
+  background-color: rgba(95, 158, 160, 0.15);
+}
+
+.est3 {
+  background-color: rgba(95, 158, 160, 0.75);
+}
+
+.articulos article {
+  background-color: rgba(95, 158, 160, 0.062);
+  /* cambia la dirección del eje principal
+    de la caja flexible */
+  flex-direction: column;
+}
+
+.articulos a {
+  background: rgba(36, 60, 61, 0.75);
+  border-radius: 4px;
+  color: white;
+  margin-top: auto;
+  margin-left: auto;
+  padding: 4px 12px;
+}
+
+.articulos a:hover {
+  background: rgba(36, 60, 61, 0.95);
+}
+
+
+/* --------------------------
+   media queries,
+   para cambiar la apariencia
+   en la medida en que el
+   navegador se ensancha
+   (mobile first)
+-------------------------- */
+
+/* cambios a partir de los 640px */
+@media(min-width: 640px) {
+
+  /* para que el footer quede siempre abajo
+     aun si el main tiene poco contenido */
+  body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+  }
+  footer {
+    margin-top: auto;
+  }
+
+  /* sale el ícono y entra el menu */
+  header nav button {
+    display: none;
+  }
+  header nav ul {
+    display: flex;
+  }
+
+  /* para poner dos artículos por línea */
+  section {
+    /* caja flexible */
+    display: flex;
+    /* si sus elementos no caben,
+      van a la siguiente línea de elementos */
+    flex-wrap: wrap;
+  }
+  section h2 {
+    /* "obliga" a los artículos a
+      bajar a la siguiente línea */
+    width: 100%;
+  }
+  article {
+    /* caben 2 articulos por línea */
+    width: 50%;
+  }
+
+}
+
+/* cambios a partir de los 800px */
+@media(min-width: 800px) {
+
+  /* para poner las dos secciones en la misma línea */
+  main {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+
+  .equipo {
+    width: 65%;
+  }
+
+  .articulos {
+    display: block;
+    /* se calcula el ancho para que queden
+       15px entre las secciones */
+    width: calc(35% - 15px);
+  }
+
+  .articulos article {
+    /* solo un artículo por línea
+       dentro de la sección */
+    width: 100%;
+  }
+
+}
