@@ -90,12 +90,18 @@ ul li {
 ul li a {
   display: block;
   background: rgba(36, 60, 61, 0.5);
+  border: solid 2px rgba(255, 255, 255, 0.25);
+  border-radius: 8px;
   color: white;
   padding: 4px 8px;
   font-size: 150%;
   font-weight: bold;
   text-decoration: none;
   transition: all 1s ease;
+}
+
+ul li a:last-child:not(:only-child) {
+  border-top: none;
 }
 
 ul li a:hover {
