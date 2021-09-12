@@ -1,0 +1,320 @@
+/* ------------------------------
+   orden de las reglas de estilo:
+   de lo general a lo particular
+   y de arriba hacia abajo
+------------------------------ */
+
+
+/* selector universal
+(TODOS los elementos del HTML) */
+* {
+  /* el tamaño de las cajas pasa a calcularse hasta la parte externa de los bordes */
+  box-sizing: border-box;
+}
+
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  text-decoration: none;
+  color: #fff;
+}
+
+img {
+  max-width: 100%;
+}
+
+
+/* ----------------
+   reglas generales
+   ---------------- */
+
+body {
+  background-image: url('../img/bg-body.png');
+  font-family: sans-serif;
+}
+
+/* para centrar bloques y limitar su ancho */
+.container {
+  max-width: 1180px;
+  margin: 0 auto;
+}
+
+p {
+  font-size: 115%;
+  color: #666;
+}
+
+
+/* -------------------
+   "componente" header
+   ------------------- */
+
+header.container {
+  margin-bottom: 20px;
+}
+
+/* Menu Accesos */
+
+.menu-access ul {
+  display: flex;
+  justify-content: space-between;
+}
+
+.menu-access a {
+  border-bottom: solid 2px transparent;
+  color: #444;
+  padding-bottom: 2px;
+}
+
+.menu-access a:hover {
+  border-bottom: solid 2px #666;
+}
+
+/* logo */
+
+.logo {
+  margin: 0 auto 30px auto;
+  width: 15.25%; /* 180px/ 1180px*/
+}
+
+.logo img {
+  border: 1px solid #ccc;
+  border-radius: 50%;
+  width: 100%;
+}
+
+/* menú principal */
+
+.main-nav {
+  text-align: center;
+}
+
+.main-nav button { /* btn "hamburguesa" */
+  background-color: #444;
+  color: white;
+  font-size: 120%;
+  width: 50px;
+  height: 50px;
+}
+
+.main-nav ul {
+  display: none; /* oculto en celulares */
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.main-nav li {
+  width: 15.25%;  /* 180px en 1180px */
+}
+
+.main-nav a {
+  display: block;
+  text-align: center;
+  text-transform: uppercase;
+  background-color: #444;
+  padding: 15px 0;
+}
+
+.main-nav a:hover {
+  background-color: #222;
+}
+
+
+/* -----------------
+   "componente" main
+   ----------------- */
+
+/* banner */
+
+.banner {
+  display: none; /* oculto en celulares */
+  margin-bottom: 30px;
+}
+
+.banner img,
+.destacados img {
+  width: 100%;
+}
+
+/* productos */
+
+.destacados article {
+  margin-bottom: 30px;
+}
+
+.destacados a {
+  background-color: #444;
+  padding: 10px 20px;
+  text-transform: capitalize;
+  display: inline-block; /* para que respete props de caja y no se encime con el elemento de arriba */
+}
+
+.destacados a:hover {
+  background-color: #222;
+}
+
+/* -------------------
+   "componente" footer
+   ------------------- */
+
+footer li {
+  text-transform: capitalize;
+}
+
+footer li a {
+  display: block;
+  text-align: center;
+  text-transform: uppercase;
+  background-color: #444;
+  padding: 10px 0;
+  margin-bottom: 4px;
+}
+
+
+
+/* -----------
+   formularios
+   ----------- */
+
+.form-container {
+  max-width: 480px;
+  margin: 60px auto;
+}
+
+.form-container h1 {
+  text-align: center;
+  text-transform: uppercase;
+  margin-bottom: 30px;
+}
+.field-group {
+  margin-bottom: 30px;
+}
+.access-form {
+  background-color: rgba(204, 204, 204, 0.5);
+  padding: 30px;
+  border-radius: 10px;
+}
+.access-form label {
+  margin-bottom: 5px;
+  display: inline-block
+}
+.field-group input,
+.field-group textarea,
+select {
+  width: 100%;
+  border: 1px solid #ccc;
+  padding: 8px 38px 8px 8px;
+}
+.remember-me {
+  text-align: right;
+}
+.remember-me input {
+  width: auto;
+}
+.alert-hide {
+  color: rgb(239, 76, 39);
+  font-size: 14px;
+  margin-top: 5px;
+}
+.access-form button {
+  font-size: 16px;
+  background-color: #3c8dbc;
+  border: 1px solid #3c8dbc;
+  color: #fff;
+  text-transform: capitalize;
+  width: 40%;
+  padding: 8px 14px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+.botones{
+  display: flex;
+  justify-content: space-around;
+}
+
+
+
+/* --------------------------
+   media queries,
+   para cambiar la apariencia
+   en la medida en que el
+   navegador se ensancha
+   (mobile first)
+-------------------------- */
+
+/* cambios a partir de los 768px */
+@media(min-width: 768px)  {
+
+  /* "componente" header */
+
+  .menu-access ul {
+    justify-content: flex-end; /* login y registro a la derecha */
+  }
+  .menu-access ul a {
+    margin-left: 20px;
+  }
+
+  .main-nav button {
+    display: none; /* oculto en tablets y escritorio */
+  }
+
+  .main-nav ul {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+
+  /* "componente" main */
+
+  .banner {
+    display: block; /* estaba oculto en celulares */
+  }
+
+  .destacados { /* para 2 articulos por linea */
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  
+  }
+  .destacados article {
+    width: calc(50% - 10px); /* caben 2 y sobran 20px */
+  }
+  
+}
+
+/* cambios a partir de los 990px */
+
+@media(min-width:996px) {
+
+  .destacados article {
+    width: calc(33.33% - 13px); /* caben 3 y sobran 40px */
+  }
+
+  footer {
+    background: rgb(200,0,0);
+    border-radius: 30px 30px 0 0;
+    padding: 25px 0;
+  }
+
+  footer ul {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+    
+  footer li:not(:last-of-type) {
+    border-right: 1px solid #fff;
+  }
+
+  footer li a {
+    background: none;
+    padding: 0 12px;
+    text-transform: none;
+
+  }
+  
+}
