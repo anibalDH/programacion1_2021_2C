@@ -1,0 +1,101 @@
+/*
+orden de las reglas de estilo:
+de lo general a lo particular
+y de arriba hacia abajo
+*/
+
+
+/* selector universal
+(TODOS los elementos del HTML) */
+* {
+  /* el tamaño de las cajas pasa a calcularse hasta la parte externa de los bordes */
+  box-sizing: border-box;
+}
+
+body {
+  color: white;
+  /* tipografía general del proyecto */
+  font-family: 'Fira Sans Condensed', sans-serif;
+  /* elimina los espacios predeterminados alrededor de las etiquetas */
+  margin: 0;
+
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+img {
+  /* evita que las imágenes sean más grandes que la etiqueta que las contiene, eliminando scrolls horizontales */
+  max-width: 100%;
+}
+
+a {
+  color: white;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+
+/*
+clase para centrar contenidos
+y limitar su ancho
+*/
+.contenedora {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 15px;
+}
+
+
+
+/*
+"componentes" encabezado y pie
+*/
+header,
+footer {
+  background-color: rgb(36, 60, 61);
+}
+
+header .contenedora {
+  /* caja flexible */
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+}
+
+header img,
+footer img {
+  max-width: 200px;
+}
+
+h1 {
+  margin: .5rem 0;
+}
+
+footer {
+  margin-top: auto;
+}
+
+
+/*
+"componente" principal de la página
+*/
+
+main {
+  background: rgb(18, 30, 31);
+  padding: 30px;
+  
+  flex-grow: 1;
+
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
