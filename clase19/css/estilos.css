@@ -1,0 +1,242 @@
+@charset "utf-8";
+
+/*
+----------------------------------------
+reglas de estilo organizadas
+de lo general a lo particular,
+de "arriba" a "abajo",
+"módulo" por "módulo",
+y "layout" para celulares
+
+DESPUÉS, a través de "puntos de quiebre"
+(mediaqueries) irían las reglas de estilos
+que cambian cuando la ventana
+del navegador se ensancha
+----------------------------------------
+*/
+
+/*
+-----------
+"reseteado"
+-----------
+*/
+
+* {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: none;
+    box-sizing: border-box;
+}
+
+/*
+----------------
+reglas generales
+y para celulares
+----------------
+*/
+
+body {
+    font-family: "trebuchet ms", helvetica, sans-serif;
+
+    /* para que el footer quede abajo */
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    justify-content: space-between;
+}
+
+img {
+    /* para que las imágenes nunca sean mayores que la caja que las contienen */
+    max-width: 100%;
+    height: auto;
+}
+
+ul {
+    list-style: none;
+}
+
+header,
+footer {
+    background-color: darkcyan;
+}
+
+
+/* íconos */
+
+.material-icons {
+    padding-right: .25em;
+}
+
+/* contenedor centrado y con ancho máximo */
+.contenedora {
+    max-width: 50rem;
+    margin: 0 auto;
+    padding: 1em;
+}
+
+
+/*
+----------------
+encabezado
+----------------
+*/
+
+header .contenedora,
+footer .contenedora {
+
+    /* caja flexible */
+    display: flex;
+
+    /* si elementos no caben, van a la línea inferior */
+    flex-wrap: wrap;
+
+    /* elementos colocados en los extremos del eje principal */
+    justify-content: space-between;
+
+    /* elementos centrados en el eje secundario */
+    align-items: center;
+}
+
+header img,
+footer img {
+    display: block;
+    width: 10em;
+}
+
+
+/* *** menu *** */
+
+header nav {
+    width: 100%;
+    color: white;
+}
+
+header nav a {
+    color: rgba(255, 255, 255, .75);
+    padding: .5em 1em;
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+header nav a:hover {
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+}
+
+/* boton que llama al menu */
+#llamamenu {
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    cursor: pointer;
+    height: 2.5em;
+    width: 2.5em;
+    /* caja flexible */
+    display: flex;
+}
+
+#llamamenu:hover {
+    background-color: rgba(0, 0, 0, 0.75);
+}
+
+/* ícono del menu */
+#llamamenu span {
+    padding: 0;
+    /* centrado en la horizontal y en la vertical */
+    margin: auto;
+}
+
+
+/* el menú propiamente dicho */
+header nav ul {
+    background-color: rgba(0, 0, 0, 0.5);
+    transition: all .3s ease;
+    /* para que no aparezca al inicio */
+    height: 0;
+    overflow: hidden;
+}
+
+/* cuando el menu está visible */
+.visible {
+    /* para que aparezca animado */
+    height: auto;
+    transition: all .6s ease;
+    margin-top: 1em;
+}
+
+/* *** main *** */
+
+main {
+    flex-grow: 1;
+    padding: 1rem;
+    transition: all 1s ease;
+}
+
+
+h1 {
+    font-size: 2em;
+    width: 100%;
+    margin-bottom: 1em;
+    padding-bottom: .5em;
+    border-bottom: solid 4px rgba(0, 139, 139, 0.5);
+}
+
+h1 span {
+    color: gray;
+    display: block;
+    font-weight: 100;
+    font-size: 1rem;
+}
+
+article {
+    background: rgba(0, 139, 139, 0.15);
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1em;
+    margin-bottom: 1em;
+    transition: border 1s ease, padding .8s ease-in, color .6s ease-in;
+}
+
+#trending {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 16px;
+    margin: 30px 0;
+}
+
+#trending article {
+    margin: 0;
+    width: calc(50% - 8px);
+}
+
+#trending h2 {
+    width: 100%;
+}
+
+#trending img {
+    width: 100%;
+}
+
+#trending p {
+    font-weight: bold;
+    margin-top: 30px;
+}
+
+/* *** pie *** */
+
+footer img {
+    margin-bottom: 1em;
+    align-self: flex-start;
+}
+
+footer p {
+    text-align: right;
+    margin-left: auto;
+    width: clamp(12em, 60%, calc(100% - 11em));
+}
